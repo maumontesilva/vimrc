@@ -95,9 +95,6 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 nnoremap <F4> i<Space><Space><Space><Space>
 inoremap <F4> <Esc>i<Space><Space><Space><Space>
 
-" Set upda Dell Codeium 
-let g:codeium_server_config = { 'portal_url': 'https://codeium.delllabs.net', 'api_url': 'https://codeium.delllabs.net/_route/api_server' }
-
 " Set colorscheme
 colorscheme habamax
 
@@ -112,9 +109,67 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'prabirshrestha/vim-lsp'
+Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'https://github.com/preservim/nerdtree' ", {'on': 'NERDTreeToggle'}
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'https://github.com/vim-airline/vim-airline-themes'
+Plug 'https://github.com/preservim/tagbar', {'on': 'TagbarToggle'} " Tagbar for code navigation
+Plug 'https://github.com/mbbill/undotree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Note -> Use CocList diagnostics to get all linter errors, Note -> .vim
+" folder is created for every project where linter is specified
+
+nnoremap <F3> :noh<CR>
+
+" Tagbar
+
+nmap <F6> :TagbarToggle<CR>
+
+"
+" NERDTree Configuration
+
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+let g:python_highlight_all = 1
+
+nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-l> :UndotreeToggle<CR>
+
+" VIM AIRLINE CONFIGURATION
+
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text'
+    \]
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 map ; :Files<CR>
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<C-H>"
+
 " Set system clipboard
 set clipboard+=unnamedplus
+
