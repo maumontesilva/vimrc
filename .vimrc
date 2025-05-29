@@ -104,23 +104,6 @@ colorscheme habamax
 "set shiftwidth=4
 "set expandtab
 
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'prabirshrestha/vim-lsp'
-Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
-Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'https://github.com/preservim/nerdtree' ", {'on': 'NERDTreeToggle'}
-Plug 'https://github.com/vim-airline/vim-airline' " Status bar
-Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
-Plug 'https://github.com/vim-airline/vim-airline-themes'
-Plug 'https://github.com/preservim/tagbar', {'on': 'TagbarToggle'} " Tagbar for code navigation
-Plug 'https://github.com/mbbill/undotree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-call plug#end()
-
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " Note -> Use CocList diagnostics to get all linter errors, Note -> .vim
@@ -139,10 +122,10 @@ let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 let g:python_highlight_all = 1
 
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-l> :UndotreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-l> :UndotreeToggle<CR>
 
 " VIM AIRLINE CONFIGURATION
 
@@ -173,3 +156,5 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<C-H>"
 " Set system clipboard
 set clipboard+=unnamedplus
 
+" trying to centralize the cursor
+"set scrolloff=9999
