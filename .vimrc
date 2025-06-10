@@ -156,5 +156,3 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<C-H>"
 " Set system clipboard
 set clipboard+=unnamedplus
 
-" trying to centralize the cursor
-"set scrolloff=9999

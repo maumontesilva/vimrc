@@ -2,6 +2,8 @@ vim.cmd("set runtimepath^=~/.vim runtimepath+=~/.vim/after")
 vim.cmd("let &packpath = &runtimepath")
 vim.cmd("source ~/.vimrc")
 
+vim.opt.colorcolumn = "79"
+
 local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 Plug 'junegunn/fzf'
@@ -23,7 +25,15 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'Exafunction/windsurf.vim'
+Plug 'christoomey/vim-tmux-navigator'
 vim.call('plug#end')
+
+-- windsurf API URL
+vim.cmd[[let g:codeium_server_config = {
+  \'portal_url': 'https://codeium.delllabs.net',
+  \'api_url': 'https://codeium.delllabs.net/_route/api_server' }
+]]
 
 -- Import lspconfig
 local lspconfig = require('lspconfig')
