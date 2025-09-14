@@ -156,3 +156,23 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<C-H>"
 " Set system clipboard
 set clipboard+=unnamedplus
 
+" Bary cfg
+set t_Co=256
+set colorcolumn=79
+let c_syntax_for_h=1
+let c_space_errors=1
+let c_no_curly_error=1
+highlight ColorColumn ctermbg=237
+highlight LineNr ctermfg=darkgrey
+
+" Source the file that defines FreeBSD_Style()
+if filereadable(expand("~/workspaces/onefs/tools/tools/editing/freebsd.vim"))
+    source ~/workspaces/onefs/tools/tools/editing/freebsd.vim
+endif
+
+" Set up autocommand to run FreeBSD_Style() on .c files in the onefs directory
+augroup FreeBSDStyle
+    autocmd!
+    autocmd BufNewFile,BufRead ~/workspaces/onefs/*.c call FreeBSD_Style()
+augroup END
+
